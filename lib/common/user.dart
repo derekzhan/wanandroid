@@ -2,6 +2,7 @@ import '../model/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// 用户类 主要用于从sharedpreference中获取、设置数据
 class User {
 
   static final User singleton = User._internal();

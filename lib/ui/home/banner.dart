@@ -4,6 +4,7 @@ import 'package:wanandroid_ngu/http/api_service.dart';
 import 'package:wanandroid_ngu/model/banner_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 
+/// banner widget
 class BannerWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

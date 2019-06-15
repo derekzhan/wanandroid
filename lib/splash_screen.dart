@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wanandroid_ngu/app.dart';
+
+/// 闪屏页
 class SplashScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -28,6 +30,7 @@ class SplashScreenState extends State<SplashScreen> {
             fontSize: 20.0,
             fontFamily: 'Raleway'),
         marginDescription: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 70.0),
+        // 下面4项可以控制从左上角到右下角的颜色线性变化
         colorBegin: Color(0xffFFDAB9),
         colorEnd: Color(0xff40E0D0),
         directionColorBegin: Alignment.topLeft,

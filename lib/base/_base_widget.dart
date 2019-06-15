@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// 所有widget的父组件，提供模板方法供子类实现
 abstract class BaseWidget extends StatefulWidget {
 
   BaseWidgetState baseWidgetState;
@@ -57,6 +58,7 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
     super.dispose();
   }
 
+  /// 构建页面内容widget
   Widget getContentWidget(BuildContext context);
 
   ///暴露的错误页面方法，可以自己重写定制

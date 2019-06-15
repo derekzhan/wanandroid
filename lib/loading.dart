@@ -21,6 +21,7 @@ class _LoadingState extends State<LoadingPage> {
     });
   }
 
+  // 判断是否需要跳过闪屏页，如果已经在sharedpreference存在则跳过 并进入app页面 ，否则进入闪屏页面
   void _getHasSkip ()async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool hasSkip = prefs.getBool("hasSkip");

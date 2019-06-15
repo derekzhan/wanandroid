@@ -7,6 +7,7 @@ import 'package:wanandroid_ngu/model/article_model.dart';
 import 'package:wanandroid_ngu/ui/home/banner.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 
+/// 首页
 class HomePage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {
@@ -144,6 +145,7 @@ class HomePageState extends BaseWidgetState<HomePage> {
   }
 
   Widget _renderRow(BuildContext context, int index) {
+    // 首先rende banner
     if (index == 0) {
       return Container(
         height: 200,

@@ -7,7 +7,6 @@ import 'package:wanandroid_ngu/ui/project/project.dart';
 import 'package:wanandroid_ngu/ui/publicc/publicc.dart';
 import 'package:wanandroid_ngu/ui/search/search.dart';
 
-
 //应用页面使用有状态Widget
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -33,10 +32,13 @@ class AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    // 导航返回拦截WillPopScope
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
+        // 抽屉页面
         drawer: DrawerPage(),
+        // appbar的设置
         appBar: AppBar(
           title: new Text(appBarTitles[_selectedIndex]),
           bottom: null,
@@ -52,6 +54,7 @@ class AppState extends State<App> {
                 })
           ],
         ),
+        // 中间页面
         body: new IndexedStack(children: pages, index: _selectedIndex),
         //底部导航按钮 包含图标及文本
         bottomNavigationBar: BottomNavigationBar(
