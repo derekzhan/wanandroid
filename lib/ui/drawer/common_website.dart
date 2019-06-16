@@ -7,6 +7,7 @@ import 'package:wanandroid_ngu/http/api_service.dart';
 import 'package:wanandroid_ngu/model/common_websit_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 
+/// 常用网站
 class CommonWebsitePage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {

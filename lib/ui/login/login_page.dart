@@ -11,6 +11,7 @@ import 'package:wanandroid_ngu/util/bubble_indication_painter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:wanandroid_ngu/util/theme_util.dart';
 
+/// 登录页面
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 

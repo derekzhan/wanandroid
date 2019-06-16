@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+/// 样式工具类
 class StyleUtil {
 
   /**

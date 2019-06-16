@@ -10,6 +10,7 @@ import 'package:wanandroid_ngu/model/wx_article_title_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 import 'package:wanandroid_ngu/util/theme_util.dart';
 
+/// 公众号页面
 class PubliccPage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {
@@ -19,7 +20,6 @@ class PubliccPage extends BaseWidget {
 
 class PubliccPageState extends BaseWidgetState<PubliccPage>
     with TickerProviderStateMixin {
-
   Color themeColor = ThemeUtils.currentColorTheme;
 
   List<WxArticleTitleData> _datas = new List();
@@ -55,6 +55,7 @@ class PubliccPageState extends BaseWidgetState<PubliccPage>
     setAppBarVisible(false);
     _getData();
 
+    // 监听主题更改事件
     Application.eventBus.on<ChangeThemeEvent>().listen((event) {
       setState(() {
         themeColor = event.color;
@@ -82,6 +83,7 @@ class PubliccPageState extends BaseWidgetState<PubliccPage>
       vsync: this,
       length: _datas.length,
     );
+    /// 上面是tabbar，下面的tabbarview占满整个屏幕
     return Scaffold(
         body: Column(
       children: <Widget>[
@@ -117,8 +119,10 @@ class PubliccPageState extends BaseWidgetState<PubliccPage>
   }
 }
 
+/// 文章列表
 class NewsList extends StatefulWidget {
   final int id;
+
   NewsList(this.id);
 
   @override

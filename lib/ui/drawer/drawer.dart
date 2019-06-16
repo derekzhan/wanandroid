@@ -13,6 +13,7 @@ import 'package:wanandroid_ngu/ui/login/login_page.dart';
 import 'package:wanandroid_ngu/util/theme_util.dart';
 import 'package:wanandroid_ngu/util/utils.dart';
 
+/// 抽屉页面
 class DrawerPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

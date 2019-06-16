@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/// tab指示器
 class TabIndicationPainter extends CustomPainter {
   Paint painter;
   final double dxTarget;

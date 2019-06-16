@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:wanandroid_ngu/util/theme_util.dart';
 
+/// webview页面
 class WebViewPage extends StatefulWidget {
   String title;
   String url;

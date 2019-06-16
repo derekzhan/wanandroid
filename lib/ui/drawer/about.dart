@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 
+/// 关于作者
 class AboutMePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

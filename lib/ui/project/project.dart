@@ -10,6 +10,7 @@ import 'package:wanandroid_ngu/model/project_tree_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 import 'package:wanandroid_ngu/util/theme_util.dart';
 
+/// 项目页面
 class ProjectPage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {
@@ -56,6 +57,8 @@ class ProjectPageState extends BaseWidgetState<ProjectPage>
     super.initState();
     setAppBarVisible(false);
     _getData();
+
+    /// 监听主题变更事件
     Application.eventBus.on<ChangeThemeEvent>().listen((event) {
       setState(() {
         themeColor = event.color;
@@ -234,6 +237,7 @@ class _ProjectListState extends State<ProjectList> {
           color: Colors.white,
           child:   Row(
             children: <Widget>[
+              /// 填满左侧内容
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -292,6 +296,7 @@ class _ProjectListState extends State<ProjectList> {
                   ],
                 ),
               ),
+              /// 右侧图片
               Container(
                   padding: EdgeInsets.fromLTRB(8, 16, 8, 8),
                   child: Image.network(

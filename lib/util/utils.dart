@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lpinyin/lpinyin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// 常用工具类
 class Utils {
 
   static final String SP_COLOR_THEME_INDEX = "colorThemeIndex";

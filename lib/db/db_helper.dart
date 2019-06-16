@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:path/path.dart';
 import 'package:wanandroid_ngu/model/common_websit_model.dart';
 
+/// sqlite 数据库帮助类
 class DatabaseHelper {
 
   static final DatabaseHelper _instance = DatabaseHelper.internal();

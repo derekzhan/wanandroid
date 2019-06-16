@@ -10,6 +10,7 @@ import 'package:wanandroid_ngu/model/base_model.dart';
 import 'package:wanandroid_ngu/model/collection_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 
+/// 收藏
 class CollectionsPage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {

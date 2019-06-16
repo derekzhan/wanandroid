@@ -7,6 +7,7 @@ import 'package:wanandroid_ngu/model/system_tree_model.dart';
 import 'package:wanandroid_ngu/ui/knowledge/knowledge_content.dart';
 import 'package:wanandroid_ngu/util/utils.dart';
 
+/// 体系页面
 class KnowledgePage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {
@@ -16,6 +17,7 @@ class KnowledgePage extends BaseWidget {
 
 class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
   List<SystemTreeData> _datas = new List();
+
   //listview控制器
   ScrollController _scrollController = ScrollController();
   bool showToTopBtn = false; //是否显示“返回到顶部”按钮
@@ -58,7 +60,7 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
       } else {
         Fluttertoast.showToast(msg: _systemTreeModel.errorMsg);
       }
-    },(DioError error) {
+    }, (DioError error) {
       //发生错误
       print(error.response);
       showError();
@@ -69,6 +71,7 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
     if (index < _datas.length) {
       return InkWell(
           onTap: () {
+            // 点击跳转的页面
             Navigator.of(context)
                 .push(new MaterialPageRoute(builder: (context) {
               return new KnowledgeContentPage(new ValueKey(_datas[index]));
@@ -85,6 +88,7 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
+                      /// 分类标题
                       Container(
                         alignment: Alignment.centerLeft,
                         padding: EdgeInsets.only(bottom: 8),
@@ -111,12 +115,15 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
     return null;
   }
 
+  /// 构建标签
   Widget buildChildren(List<SystemTreeChild> children) {
     List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget
     Widget content; //单独一个widget组件，用于返回需要生成的内容widget
     for (var item in children) {
       tiles.add(
+        // 标签
         new Chip(
+          // 点击范围
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           backgroundColor: Utils.getChipBgColor(item.name),
           label: new Text(item.name),
@@ -125,9 +132,13 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
       );
     }
 
+    // 自适应标签，自动换行
     content = Wrap(
+      // 主轴(水平)方向间距
         spacing: 12,
+        // 纵轴（垂直）方向间距
         runSpacing: 12,
+        //沿主轴方向开始对其
         alignment: WrapAlignment.start,
         children: tiles);
 
@@ -166,16 +177,15 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
           controller: _scrollController,
         ),
       ),
-      floatingActionButton: !showToTopBtn ? null : FloatingActionButton(
-          child: Icon(Icons.arrow_upward),
-          onPressed: () {
-            //返回到顶部时执行动画
-            _scrollController.animateTo(.0,
-                duration: Duration(milliseconds: 200),
-                curve: Curves.ease
-            );
-          }
-      ),
+      floatingActionButton: !showToTopBtn
+          ? null
+          : FloatingActionButton(
+              child: Icon(Icons.arrow_upward),
+              onPressed: () {
+                //返回到顶部时执行动画
+                _scrollController.animateTo(.0,
+                    duration: Duration(milliseconds: 200), curve: Curves.ease);
+              }),
     );
   }
 
@@ -184,5 +194,4 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
     showloading();
     _getData();
   }
-
 }

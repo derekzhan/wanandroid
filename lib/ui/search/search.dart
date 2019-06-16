@@ -4,6 +4,7 @@ import 'package:wanandroid_ngu/model/hotword_model.dart';
 import 'package:wanandroid_ngu/ui/search/hot_search_result.dart';
 import 'package:wanandroid_ngu/util/utils.dart';
 
+/// 搜索页面
 class SearchPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

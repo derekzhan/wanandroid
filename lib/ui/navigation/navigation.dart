@@ -7,6 +7,7 @@ import 'package:wanandroid_ngu/model/navi_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 import 'package:wanandroid_ngu/util/utils.dart';
 
+/// 第四个tab导航页面
 class NavigationPage extends BaseWidget {
   @override
   BaseWidgetState<BaseWidget> getState() {
@@ -69,7 +70,7 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
   }
 
 
-
+  /// list列表
   Widget _rightListView(BuildContext context) {
     return ListView.separated(
         itemBuilder: _renderContent,
@@ -84,6 +85,7 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
         });
   }
 
+  /// 渲染列表内容
   Widget _renderContent(BuildContext context, int index) {
     return Container(
       color: Colors.white,
@@ -91,6 +93,7 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+          // 分类标题
           Container(
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(bottom: 8),
@@ -103,6 +106,7 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
               textAlign: TextAlign.left,
             ),
           ),
+          /// 标签内容
           Container(
             alignment: Alignment.centerLeft,
             child: buildChildren(_naviTitles[index].articles),
@@ -112,6 +116,7 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
     );
   }
 
+  /// 构建标签内容
   Widget buildChildren(List<NaviArticle> children) {
 
     List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget
@@ -119,17 +124,20 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
 
     for (NaviArticle item in children) {
       tiles.add(new InkWell(
+        /// 标签
         child: new Chip(
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             backgroundColor: Utils.getChipBgColor(item.title),
             label: new Text(item.title)),
         onTap: () {
+          ///标签点击跳转页面
           Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
             return new WebViewPage(title: item.title, url: item.link);
           }));
         },
       ));
     }
+    /// 自动布局
     content = Wrap(
       spacing: 12,
       runSpacing: 12,

@@ -3,6 +3,7 @@ import 'package:photo_view/photo_view_gallery.dart';
 import 'package:wanandroid_ngu/http/api_service.dart';
 import 'package:wanandroid_ngu/model/pretty_model.dart';
 
+/// 妹子图
 class PrettyPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

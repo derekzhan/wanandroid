@@ -7,6 +7,7 @@ import 'package:wanandroid_ngu/model/system_tree_content_model.dart';
 import 'package:wanandroid_ngu/model/system_tree_model.dart';
 import 'package:wanandroid_ngu/ui/public_ui/webview_page.dart';
 
+/// 知识内容页面
 class KnowledgeContentPage extends StatefulWidget {
   SystemTreeData data;
 
@@ -21,7 +22,7 @@ class KnowledgeContentPage extends StatefulWidget {
 }
 
 class KnowledgeContentPageState extends State<KnowledgeContentPage>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin { //需要继承TickerProvider，如果有多个AnimationController，则应该使用TickerProviderStateMixin。
   SystemTreeData _datas;
   TabController _tabController;
 

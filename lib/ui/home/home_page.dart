@@ -117,6 +117,7 @@ class HomePageState extends BaseWidgetState<HomePage> {
   Widget getContentWidget(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator(
+        // 距离多远会出现下拉刷新按钮
         displacement: 15,
         onRefresh: getData,
         child: ListView.separated(
@@ -145,7 +146,7 @@ class HomePageState extends BaseWidgetState<HomePage> {
   }
 
   Widget _renderRow(BuildContext context, int index) {
-    // 首先rende banner
+    // 首先渲染 banner
     if (index == 0) {
       return Container(
         height: 200,
@@ -155,6 +156,7 @@ class HomePageState extends BaseWidgetState<HomePage> {
     }
 
     if (index < _datas.length - 1) {
+      // 水波纹点击效果
       return new InkWell(
         onTap: ()  {
            Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
@@ -233,6 +235,7 @@ class HomePageState extends BaseWidgetState<HomePage> {
     _scrollController.dispose();
   }
 
+  /// 切换tab保持住状态
   @override
   bool get wantKeepAlive => true;
 
