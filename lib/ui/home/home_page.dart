@@ -19,7 +19,7 @@ class HomePageState extends BaseWidgetState<HomePage> {
   List<Article> _datas = new List();
   //listview控制器
   ScrollController _scrollController = ScrollController();
-  bool showToTopBtn = false; //是否显示“返回到顶部”按钮
+
   int _page = 0;
 
 
@@ -29,25 +29,10 @@ class HomePageState extends BaseWidgetState<HomePage> {
     setAppBarVisible(false);
 
     getData();
-    _scrollController.addListener(() {
-      //滑到了底部，加载更多
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        _getMore();
-      }
-
-      //当前位置是否超过屏幕高度
-      if (_scrollController.offset < 200 && showToTopBtn) {
-        setState(() {
-          showToTopBtn = false;
-        });
-      } else if (_scrollController.offset >= 200 && showToTopBtn == false) {
-        setState(() {
-          showToTopBtn = true;
-        });
-      }
-    });
+    toTopBtnView(_scrollController, _getMore);
   }
+
+
 
   //获取文章列表数据
   Future<Null> getData() async {

@@ -27,7 +27,9 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
     setAppBarVisible(false);
     _getData();
 
-    _scrollController.addListener(() {
+    super.toTopBtnView(_scrollController, null);
+
+   /* _scrollController.addListener(() {
       _scrollController.addListener(() {
         //当前位置是否超过屏幕高度
         if (_scrollController.offset < 200 && showToTopBtn) {
@@ -40,7 +42,7 @@ class NavigationState extends BaseWidgetState<NavigationPage> {
           });
         }
       });
-    });
+    });*/
   }
 
   Future<Null> _getData() async {

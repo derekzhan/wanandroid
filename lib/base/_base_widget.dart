@@ -31,6 +31,10 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
 
   FontWeight _fontWidget = FontWeight.w600; //错误页面和空页面的字体粗度
 
+  // 是否需要回到顶部按钮功能
+  bool _isNeedTopButton = true;
+  bool showToTopBtn = false; //是否显示“返回到顶部”按钮
+
   @override
   void initState() {
     super.initState();
@@ -56,6 +60,28 @@ abstract class BaseWidgetState<T extends BaseWidget> extends State<T> {
   @override
   void dispose() {
     super.dispose();
+  }
+
+  /// 回到顶部按钮
+  void toTopBtnView(ScrollController _scrollController,Function _getMore) {
+    _scrollController.addListener(() {
+      //滑到了底部，加载更多
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        _getMore ?? null;
+      }
+
+      //当前位置是否超过屏幕高度
+      if (_scrollController.offset < 200 && showToTopBtn) {
+        setState(() {
+          showToTopBtn = false;
+        });
+      } else if (_scrollController.offset >= 200 && showToTopBtn == false) {
+        setState(() {
+          showToTopBtn = true;
+        });
+      }
+    });
   }
 
   /// 构建页面内容widget

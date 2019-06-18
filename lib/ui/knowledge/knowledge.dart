@@ -28,7 +28,8 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
     setAppBarVisible(false);
     _getData();
 
-    _scrollController.addListener(() {
+    toTopBtnView(_scrollController, null);
+   /* _scrollController.addListener(() {
       //当前位置是否超过屏幕高度
       if (_scrollController.offset < 200 && showToTopBtn) {
         setState(() {
@@ -39,7 +40,7 @@ class KnowledgePageState extends BaseWidgetState<KnowledgePage> {
           showToTopBtn = true;
         });
       }
-    });
+    });*/
   }
 
   Future<Null> _getData() async {
